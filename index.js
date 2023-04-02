@@ -11,4 +11,9 @@ io.on('connection',(socket)=>{
     socket.on('messageToServer',(datafromclient)=>{
         console.log(datafromclient)
     })
+
+    socket.on('newMessageToServer',(msg)=>{
+        // console.log(msg)
+        io.emit('messageToClient',{text:msg.text})
+    })
 })
